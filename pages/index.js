@@ -17,11 +17,14 @@ const useStyles = makeStyles((theme) => ({
 export default function Home() {
   const [results, setResults] = useState([]);
 
+  // some random movie query for the homepage
+  const query = "potter";
+
   const classes = useStyles();
 
   useEffect(() => {
     fetch(
-      `https://api.themoviedb.org/3/search/movie?api_key=${process.env.NEXT_PUBLIC_APP_TMDB_KEY}&language=en-US&page=1&include_adult=false&query=potter`
+      `https://api.themoviedb.org/3/search/movie?api_key=${process.env.NEXT_PUBLIC_APP_TMDB_KEY}&language=en-US&page=1&include_adult=false&query=${query}`
     )
       .then((res) => res.json())
       .then((data) => {
